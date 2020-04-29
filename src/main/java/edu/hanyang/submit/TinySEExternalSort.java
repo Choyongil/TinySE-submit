@@ -1,7 +1,6 @@
 package edu.hanyang.submit;
 
 import java.io.IOException;
-import java.security.cert.CollectionCertStoreParameters;
 
 import edu.hanyang.indexer.ExternalSort;
 import java.io.FileInputStream;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import org.apache.commons.lang3.tuple.Triple;
-import org.apache.commons.lang3.tuple.*;
 import java.io.File;
 
 public class TinySEExternalSort implements ExternalSort {
@@ -69,8 +67,6 @@ public class TinySEExternalSort implements ExternalSort {
 		DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream(infile),blocksize));
 		DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outfile),blocksize));
 		DataOutputStream run_writer;
-		DataInputStream run_read1;
-		DataInputStream run_read2;
 		ArrayList<Triple<Integer, Integer, Integer>> runs = new ArrayList<Triple<Integer, Integer, Integer>>();
 		int records = blocksize / ((Integer.SIZE/Byte.SIZE) * 3); // 한 블럭당 튜플 개수
 		int word_id, doc_id, pos;
@@ -117,7 +113,6 @@ public class TinySEExternalSort implements ExternalSort {
 		// merge pass 시작
 		ArrayList<Tuple> tuples = new ArrayList<Tuple>();
 		ArrayList<DataInputStream> run_reads = new ArrayList<DataInputStream>();
-		Triple<Integer,Integer,Integer> triple;
 		Tuple tuple;
 		int index;
 		while(true){
