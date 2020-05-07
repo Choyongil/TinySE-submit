@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter7263660191671570364.jar /Users/mac/git/TinySE-submit/target/surefire 2020-05-08T00-15-58_089-jvmRun1 surefire8332582770897920865tmp surefire_013277370616213950319tmp"/>
+    <property name="sun.java.command" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter12251785938034160983.jar /Users/mac/git/TinySE-submit/target/surefire 2020-05-08T00-31-22_476-jvmRun1 surefire15492202324911992784tmp surefire_0229099091305746281tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/mac/git/TinySE-submit/target/test-classes:/Users/mac/git/TinySE-submit/target/classes:/Users/mac/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.2.1/lucene-analyzers-common-7.2.1.jar:/Users/mac/.m2/repository/org/apache/lucene/lucene-core/7.2.1/lucene-core-7.2.1.jar:/Users/mac/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/Users/mac/git/TinySE-submit/lib/tinyse-build_1.jar:/Users/mac/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/mac/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter7263660191671570364.jar"/>
+    <property name="surefire.real.class.path" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter12251785938034160983.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="14+36-1461"/>
