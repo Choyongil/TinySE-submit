@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.hanyang.ExternalSortTest" time="3.92" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.hanyang.ExternalSortTest" time="3.683" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter17634375969912741515.jar /Users/mac/git/TinySE-submit/target/surefire 2020-05-07T23-57-40_325-jvmRun1 surefire184032841813602043tmp surefire_018121379001733631759tmp"/>
+    <property name="sun.java.command" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter7263660191671570364.jar /Users/mac/git/TinySE-submit/target/surefire 2020-05-08T00-15-58_089-jvmRun1 surefire8332582770897920865tmp surefire_013277370616213950319tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/mac/git/TinySE-submit/target/test-classes:/Users/mac/git/TinySE-submit/target/classes:/Users/mac/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.2.1/lucene-analyzers-common-7.2.1.jar:/Users/mac/.m2/repository/org/apache/lucene/lucene-core/7.2.1/lucene-core-7.2.1.jar:/Users/mac/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/Users/mac/git/TinySE-submit/lib/tinyse-build_1.jar:/Users/mac/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/mac/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter17634375969912741515.jar"/>
+    <property name="surefire.real.class.path" value="/Users/mac/git/TinySE-submit/target/surefire/surefirebooter7263660191671570364.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="14+36-1461"/>
@@ -53,5 +53,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="TestSort" classname="edu.hanyang.ExternalSortTest" time="3.859"/>
+  <testcase name="TestSort" classname="edu.hanyang.ExternalSortTest" time="3.615"/>
 </testsuite>

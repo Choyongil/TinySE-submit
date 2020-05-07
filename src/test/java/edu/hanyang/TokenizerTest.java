@@ -13,10 +13,7 @@ import org.junit.Test;
  
 import edu.hanyang.submit.TinySETokenizer;
 
-<<<<<<< HEAD
 @Ignore
-=======
->>>>>>> 2a5acbaedb6025bf4dbe287684da40223f5680f9
 public class TokenizerTest {
 	static List<String[]> results;
 	static List<String> testSentences;

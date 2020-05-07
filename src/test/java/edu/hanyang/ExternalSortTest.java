@@ -9,7 +9,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import edu.hanyang.submit.TinySEExternalSort;
@@ -27,13 +26,9 @@ public class ExternalSortTest {
 	
 	@Test
 	public void TestSort() throws IOException {
-<<<<<<< HEAD
 		int blocksize = 8192;
 		int nblocks = 2000;
-=======
-		int blocksize = 1024;
-		int nblocks = 160;
->>>>>>> 2a5acbaedb6025bf4dbe287684da40223f5680f9
+
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		File infile = new File(classLoader.getResource("test.data").getFile());
 		String outfile = "./tmp/sorted.data";
