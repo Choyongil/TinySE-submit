@@ -61,6 +61,7 @@ public class TinySEExternalSort implements ExternalSort {
 		}
 	}
 	
+	
 	public void sort(String infile, String outfile, String tmpdir, int blocksize, int nblocks) throws IOException {
 
 		File dir = new File(tmpdir);
@@ -69,13 +70,15 @@ public class TinySEExternalSort implements ExternalSort {
 		}
 		DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream(infile),blocksize));
 		DataOutputStream run_writer;
-		ArrayList<MutableTriple<Integer, Integer, Integer>> runs = new ArrayList<MutableTriple<Integer, Integer, Integer>>();
+		ArrayList<MutableTriple<Integer, Integer, Integer>> runs = new ArrayList<MutableTriple<Integer, Integer, Integer>>(nblocks * blocksize / 120);
+		
 		int word_id, doc_id, pos;
 		int run_cnt = 1;
 		int pass_cnt = 1;
 		while(input.available() != 0){
-			if( input.available() > nblocks * 70 * 12  ) {
-				while (runs.size() < nblocks * 70){
+			if( input.available() > nblocks * blocksize / 15 ) {
+				
+				while (runs.size() < nblocks * blocksize / 180){
 					word_id = input.readInt();
 					doc_id = input.readInt();
 					pos = input.readInt();

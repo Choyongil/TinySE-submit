@@ -26,8 +26,8 @@ public class ExternalSortTest {
 	
 	@Test
 	public void TestSort() throws IOException {
-		int blocksize = 8192;
-		int nblocks = 2000;
+		int blocksize = 4096;
+		int nblocks = 1200;
 
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		File infile = new File(classLoader.getResource("test-10000000.data").getFile());
