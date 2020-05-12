@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.hanyang.BPlusTreeTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in edu.hanyang.BPlusTreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in edu.hanyang.BPlusTreeTest
