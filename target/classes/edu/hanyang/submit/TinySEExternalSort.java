@@ -9,7 +9,6 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -71,23 +70,28 @@ public class TinySEExternalSort implements ExternalSort {
 		}
 		DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream(infile),blocksize));
 		DataOutputStream run_writer;
-		ArrayList<MutableTriple<Integer, Integer, Integer>> runs = new ArrayList<MutableTriple<Integer, Integer, Integer>>(nblocks * blocksize / 204);
+		ArrayList<MutableTriple<Integer, Integer, Integer>> runs = new ArrayList<MutableTriple<Integer, Integer, Integer>>(nblocks * blocksize / 120);
 		
 		int word_id, doc_id, pos;
 		int run_cnt = 1;
 		int pass_cnt = 1;
 		while(input.available() != 0){
-			for (int i = 0 ; i < nblocks * blocksize / 204 ; i++){
-                try {
-                	word_id = input.readInt();
+			if( input.available() > nblocks * blocksize / 14 ) {
+				
+				while (runs.size() < nblocks * blocksize / 168){
+					word_id = input.readInt();
 					doc_id = input.readInt();
 					pos = input.readInt();
 					runs.add(MutableTriple.of(word_id,doc_id,pos));
-                } catch (EOFException e) {
-                    break;
-                }
+				}
+			} else {
+				while (input.available() != 0){
+					word_id = input.readInt();
+					doc_id = input.readInt();
+					pos = input.readInt();
+					runs.add(MutableTriple.of(word_id,doc_id,pos));
+				}
 			}
-		
 			Collections.sort(runs, new TripleSort());
 			run_writer = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(tmpdir+"/run_"+pass_cnt+"_"+run_cnt+".data"),blocksize));
 			for(Triple<Integer,Integer,Integer> tuple : runs){
@@ -133,8 +137,7 @@ public class TinySEExternalSort implements ExternalSort {
 				}
 				if(cur_runs == 1) run_writer = output;
 				else run_writer = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(tmpdir+"/run_"+pass_cnt+"_"+run_cnt+".data"),blocksize));
-				
-				while(!tuples.isEmpty()){
+				while(true){
 					tuple = tuples.poll();
 					index = tuple.index;
 					run_writer.writeInt(tuple.word_id);
@@ -147,6 +150,7 @@ public class TinySEExternalSort implements ExternalSort {
 						tuple = new Tuple(index,word_id,doc_id,pos);
 						tuples.offer(tuple);
 					}
+					if(tuples.isEmpty()) break;
 				}
 				run_cnt++;
 				run_writer.close();
