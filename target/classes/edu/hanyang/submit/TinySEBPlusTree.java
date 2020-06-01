@@ -12,7 +12,7 @@ import edu.hanyang.indexer.BPlusTree;
 class Node{
 	
 	// leaf_check : leaf_node = 1  &  non_leaf_node = 0		default : 1
-    // index : node's address(0, 52, 104 ...)				default : 0
+	// index : node's address(0, 52, 104 ...)				default : 0
 	// parent_index : node's parent address(0, 52, 104 ...) default : -1
 	// num_key : number of key which node has				default : 0
 	
@@ -43,8 +43,8 @@ public class TinySEBPlusTree implements BPlusTree{
    RandomAccessFile file2;		// savefile(=filepath)
    int blocksize;				// blocksize
 //   int nblocks;					
-   int root_index;              // root node 의 위치 값
-   int fanout;                  // maximum num of pointer 갯수
+   int root_index;				// root node 의 위치 값
+   int fanout;					// maximum num of pointer 갯수
    int split_num;				// num of key which origin node has when split
    
    @Override
