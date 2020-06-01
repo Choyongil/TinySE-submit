@@ -10,14 +10,24 @@ import java.util.List;
 import edu.hanyang.indexer.BPlusTree;
 
 class Node{
-   
-   int leaf_check;      // leaf node인지 확인
-   int index;         // node 의 첫 pointer index
+	
+	// leaf_check : leaf_node = 1  &  non_leaf_node = 0		default : 1
+    // index : node's address(0, 52, 104 ...)				default : 0
+	// parent_index : node's parent address(0, 52, 104 ...) default : -1
+	// num_key : number of key which node has				default : 0
+	
+   int leaf_check;      
+   int index;        
    int parent_index;
-   int num_key;      // key 갯수 
+   int num_key;      
    
-   List<Integer> key = new ArrayList<Integer>();
+   
+    // list of key which have node has
+    // list of value which have node has
+   
+   List<Integer> key = new ArrayList<Integer>();		
    List<Integer> value = new ArrayList<Integer>();
+   
    
    public Node(){
       this.leaf_check = 1;
@@ -29,13 +39,13 @@ class Node{
 
 public class TinySEBPlusTree implements BPlusTree{
 
-   RandomAccessFile file;
-   RandomAccessFile file2;
-   int blocksize;
-   int nblocks;
-   int root_index;            // root node 의 위치 값
-   int fanout;               // 노드가 가질 수 있는 최대 pointer 갯수
-   int split_num;
+   RandomAccessFile file;		// metafile
+   RandomAccessFile file2;		// savefile(=filepath)
+   int blocksize;				// blocksize
+//   int nblocks;					
+   int root_index;              // root node 의 위치 값
+   int fanout;                  // maximum num of pointer 갯수
+   int split_num;				// num of key which origin node has when split
    
    @Override
    public void close() {
