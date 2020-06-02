@@ -152,34 +152,30 @@ public class TinySEBPlusTree implements BPlusTree{
             insert_node = check_index(insert_node.value.get(insert_node.num_key));
          }
          else {
-//        	int s_i = insert_node.num_key / 2;
-//    		if (insert_node.key.get(s_i) < key && insert_node.key.get(s_i+1) > key ) {
-//              insert_node = check_index(insert_node.value.get(s_i+1));
-////              break;
-//           }
-//    		else if( insert_node.key.get(s_i) > key ) {
-//    			for( int i = 0 ; i < s_i ; i++) {
-//                  if (insert_node.key.get(i) < key && insert_node.key.get(i+1) > key ) {
-//                     insert_node = check_index(insert_node.value.get(i+1));
-//                     break;
-//                  }
+        	 int s_i = insert_node.num_key / 2;
+        	 int min = 0;
+        	 int max = insert_node.num_key;
+        	 while(true) {
+ 	        	
+ 	    		if (insert_node.key.get(s_i) < key && insert_node.key.get(s_i+1) > key ) {
+ 	    			insert_node = check_index(insert_node.value.get(s_i+1));
+ 	              break;
+ 	           }
+ 	    		else if( insert_node.key.get(s_i) > key ) {
+ 	    			max = s_i;
+ 	    			s_i = (min + s_i)/2;
+ 	    		}
+ 	    		else {
+ 	    			min = s_i;
+ 	    			s_i = (s_i + max)/2; 
+ 				}
+         	 }
+//            for( int i = 0 ; i < insert_node.num_key ; i++) {
+//               if (insert_node.key.get(i) < key && insert_node.key.get(i+1) > key ) {
+//                  insert_node = check_index(insert_node.value.get(i+1));
+//                  break;
 //               }
-//    		}
-//    		else {
-//    			for( int i = s_i+1 ; i < insert_node.num_key ; i++) {
-//                  if (insert_node.key.get(i) < key && insert_node.key.get(i+1) > key ) {
-//                     insert_node = check_index(insert_node.value.get(i+1));
-//                     break;
-//                  }
-//               }
-//    		}
-        	
-            for( int i = 0 ; i < insert_node.num_key ; i++) {
-               if (insert_node.key.get(i) < key && insert_node.key.get(i+1) > key ) {
-                  insert_node = check_index(insert_node.value.get(i+1));
-                  break;
-               }
-            }
+//            }
          }
       }
       
@@ -534,35 +530,31 @@ public class TinySEBPlusTree implements BPlusTree{
             search_node = check_index(search_node.value.get(search_node.num_key));
          }
          else {
-//        	 int s_i = search_node.num_key / 2;
-//         	
-//     		if (search_node.key.get(s_i) <= key && search_node.key.get(s_i+1) > key ) {
-//     			search_node = check_index(search_node.value.get(s_i+1));
-//               break;
-//            }
-//     		else if( search_node.key.get(s_i) > key ) {
-//     			for(int i = 0 ; i < s_i ; i++) {
-// 	               if (search_node.key.get(i) <= key && key < search_node.key.get(i+1)) {
-// 	                  search_node = check_index(search_node.value.get(i+1));
-// 	                  break;
-// 	               }
-//     			}
-//     		}
-//     		else {
-//     			for(int i = s_i+1 ; i < search_node.num_key ; i++) {
-//  	               if (search_node.key.get(i) <= key && key < search_node.key.get(i+1)) {
-//  	                  search_node = check_index(search_node.value.get(i+1));
-//  	                  break;
-//  	               }
-//      			}
-//     		}
+        	 int s_i = search_node.num_key / 2;
+        	 int max = search_node.num_key;
+        	 int min = 0;
+        	 while(true) {
+	        	
+	    		if (search_node.key.get(s_i) <= key && search_node.key.get(s_i+1) > key ) {
+	    			search_node = check_index(search_node.value.get(s_i+1));
+	              break;
+	           }
+	    		else if( search_node.key.get(s_i) > key ) {
+	    			max = s_i;
+	    			s_i = (min + s_i)/2;
+	    		}
+	    		else {
+	    			min = s_i;
+	    			s_i = (s_i + max)/2; 
+				}
+        	 }
          	
-            for (int i = 0 ; i < search_node.num_key ; i ++) {
-               if (search_node.key.get(i) <= key && key < search_node.key.get(i+1)) {
-                  search_node = check_index(search_node.value.get(i+1));
-                  break;
-               }
-            }
+//            for (int i = 0 ; i < search_node.num_key ; i ++) {
+//               if (search_node.key.get(i) <= key && key < search_node.key.get(i+1)) {
+//                  search_node = check_index(search_node.value.get(i+1));
+//                  break;
+//               }
+//            }
          }
       }
       if (search_node.key.get(0) > key || search_node.key.get(search_node.num_key - 1) < key) {
