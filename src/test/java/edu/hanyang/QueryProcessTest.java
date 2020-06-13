@@ -23,7 +23,7 @@ import edu.hanyang.utils.TestDocCursor;
 import edu.hanyang.utils.TestIntermediateList;
 import edu.hanyang.utils.TestIntermediatePositionalList;
 
-@Ignore("Delete this line to unit test stage 4")
+//@Ignore("Delete this line to unit test stage 4")
 public class QueryProcessTest {
 	List<List<Integer>> posList = null;
 	TinySEQueryProcess qp = null;
@@ -103,7 +103,7 @@ public class QueryProcessTest {
 		assertEquals(dc.is_eol(), true);
 	}
 
-	@Test
+//	@Test
 	public void test_query_plan_tree() throws Exception {
 		String query = "3 5 7";
 		QueryPlanTree tree = qp.parse_query(query, stat);

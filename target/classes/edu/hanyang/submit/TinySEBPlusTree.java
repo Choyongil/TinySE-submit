@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.hanyang.indexer.BPlusTree;
@@ -170,12 +171,6 @@ public class TinySEBPlusTree implements BPlusTree{
  	    			s_i = (s_i + max)/2; 
  				}
          	 }
-//            for( int i = 0 ; i < insert_node.num_key ; i++) {
-//               if (insert_node.key.get(i) < key && insert_node.key.get(i+1) > key ) {
-//                  insert_node = check_index(insert_node.value.get(i+1));
-//                  break;
-//               }
-//            }
          }
       }
       
@@ -214,21 +209,6 @@ public class TinySEBPlusTree implements BPlusTree{
          split(insert_node);
          
       }
-      
-//      System.out.println("root_index : " + this.root_index);
-//      
-//      
-//      for (int i=0; i<check_split + 5; i++) {
-//            System.out.println("주소값" + i*52 + " 일 때의 key : " + check_index(i * 52).key);
-//            System.out.println("주소값" + i*52 + " 일 때의 value : " + check_index(i * 52).value);
-//            System.out.println("주소값" + i*52 + " 일 때의 parent_node : " + check_index(i * 52).parent_index);
-//            System.out.println("주소값" + i*52 + " 일 때의 leaf node 인가 : " + check_index(i * 52).leaf_check);
-//            System.out.println("");
-//         }
-//         System.out.println(check_split);
-////         
-//         System.out.println("");
-//         System.out.println("");
    }
    
    
@@ -241,9 +221,7 @@ public class TinySEBPlusTree implements BPlusTree{
       Node new_node = new Node();
       
       List<Integer> keys = input_node.key;
-//      System.out.println(keys);
       List<Integer> values = input_node.value;
-//      System.out.println(values);
       
       try {
          
@@ -548,13 +526,6 @@ public class TinySEBPlusTree implements BPlusTree{
 	    			s_i = (s_i + max)/2; 
 				}
         	 }
-         	
-//            for (int i = 0 ; i < search_node.num_key ; i ++) {
-//               if (search_node.key.get(i) <= key && key < search_node.key.get(i+1)) {
-//                  search_node = check_index(search_node.value.get(i+1));
-//                  break;
-//               }
-//            }
          }
       }
       if (search_node.key.get(0) > key || search_node.key.get(search_node.num_key - 1) < key) {
